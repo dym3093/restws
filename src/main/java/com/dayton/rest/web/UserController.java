@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  * Created by bruce on 17-5-5.
@@ -18,7 +22,28 @@ public class UserController {
     @RequestMapping(value = "add",
                     method = RequestMethod.POST,
                     produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
     public String add(HttpServletRequest request){
+        BufferedReader br = null;
+        StringBuffer sb = new StringBuffer("");
+        try {
+            br = new BufferedReader(new InputStreamReader(request.getInputStream(), Charset.forName("UTF-8")));
+            String temp;
+            while ((temp = br.readLine()) != null) {
+                sb.append(temp);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br!=null){
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        System.out.println("接收到的字符信息： "+ sb.toString());
         System.out.println("method add");
         return "add";
     }
