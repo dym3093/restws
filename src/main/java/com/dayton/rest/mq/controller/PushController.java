@@ -24,7 +24,7 @@ public class PushController {
     @Resource(name = "newsPushService")
     private PushService newsPushService;
 
-    @Resource(name = "userPushService")
+    @Resource(name = "clientPushService")
     private PushService clientPushService;
 
 

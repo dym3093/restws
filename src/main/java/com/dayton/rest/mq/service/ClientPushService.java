@@ -5,13 +5,13 @@ package com.dayton.rest.mq.service;/**
 import org.springframework.stereotype.Service;
 
 /**
- * 新闻推送
+ * 客户相关service
  *
  * @author Damian
- * @create 2017-05-17 下午5:56
+ * @create 2017-05-17 下午6:22
  **/
-@Service("newsPushService")
-public class NewsPushService implements PushService{
+@Service("clientPushService")
+public class ClientPushService implements PushService{
 
     @Override
     public void push(Object info) {
