@@ -16,14 +16,6 @@
                             http://www.springframework.org/schema/tx
                             http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-    <!--启用注解-->
-    <mvc:annotation-driven/>
-
-    <!--制定扫描包路径-->
-    <context:component-scan base-package="com.dayton.rest">
-        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-    </context:component-scan>
-
     <!--JSP视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--前缀-->
