@@ -45,6 +45,7 @@ public class MessageController {
     @ResponseBody
     public void send(String msg){
         log.info(Thread.currentThread().getName()+" ---- send to jms begin ... ");
+        log.info("msg: "+msg);
         producerService.sendMessage(msg);
         log.info(Thread.currentThread().getName()+" ---- send to jms end !!! ");
     }

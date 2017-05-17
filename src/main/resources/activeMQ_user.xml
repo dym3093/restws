@@ -23,48 +23,25 @@
                             http://activemq.apache.org/schema/core/activemq-core-5.12.1.xsd">
 
 
-    <amq:connectionFactory id="amqConnectionFactory"
-                           brokerURL="tcp://192.168.148.128:61616"
-                           userName="admin"
-                           password="admin"/>
-
-    <!--JMS容量-->
-    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
-        <constructor-arg ref="amqConnectionFactory"/>
-        <property name="sessionCacheSize" value="100"/>
-    </bean>
-
-    <!--定义消息队列(Queue)-->
-    <bean id="demoQueueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+    <!--推送给用户信息-->
+    <bean id="userServiceQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg>
-            <value>dolphin_MQ_queue</value>
+            <value>user.service.queue</value>
         </constructor-arg>
     </bean>
 
-    <!--定义消息队列(Topic)-->
-    <bean id="demoTopicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+    <!--推送给新闻信息-->
+    <bean id="newsServiceQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg>
-            <value>dolphin_MQ_topic</value>
+            <value>news.service.queue</value>
         </constructor-arg>
     </bean>
 
-    <!--配置JMS模板(Queue), Spring提供的JMS工具类，用于发送，接收消息-->
-    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
-        <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="defaultDestination" ref="demoQueueDestination"/>
-        <property name="receiveTimeout" value="10000"/>
-        <!--true是 topic, false是queue， 默认试false-->
-        <property name="pubSubDomain" value="false"/>
-    </bean>
-
-    <!--消息队列监听-->
-    <bean id="queueMessageListener" class="com.dayton.rest.mq.filter.QueueMessageListener"/>
-
-    <!--显示注入消息监听容器，配置连接工厂-->
-    <bean id="queueListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-        <property name="connectionFactory" ref="connectionFactory"/>
-        <property name="destination" ref="demoQueueDestination"/>
-        <property name="messageListener" ref="queueMessageListener"/>
+    <!--推送个客户信息-->
+    <bean id="clientServiceQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg>
+            <value>client.service.queue</value>
+        </constructor-arg>
     </bean>
 
 </beans>
