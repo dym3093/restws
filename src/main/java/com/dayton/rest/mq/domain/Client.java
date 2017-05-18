@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author Damian
  * @create 2017-05-17 下午6:13
  **/
-public class Client implements Serializable{
+public class Client extends BaseEntity implements Serializable{
 
     private Long id;
 
