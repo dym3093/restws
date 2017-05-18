@@ -23,8 +23,9 @@
                             http://activemq.apache.org/schema/core/activemq-core-5.12.1.xsd">
 
 
+    <!--brokerURL="tcp://192.168.148.128:61616"-->
     <amq:connectionFactory id="amqConnectionFactory"
-                           brokerURL="tcp://192.168.148.128:61616"
+                           brokerURL="tcp://localhost:61616"
                            userName="admin"
                            password="admin"/>
 

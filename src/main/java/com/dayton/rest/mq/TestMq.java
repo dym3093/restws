@@ -12,6 +12,9 @@ package com.dayton.rest.mq;/**
 public class TestMq {
 
     public static void main(String[] args){
+    }
+
+    public void testDemo(){
         Producter producter = new Producter();
         producter.init();
         try {
@@ -19,6 +22,7 @@ public class TestMq {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         TestMq testMq = new TestMq();
         new Thread(testMq.new ProductorMq(producter)).start();
         new Thread(testMq.new ProductorMq(producter)).start();
@@ -26,7 +30,6 @@ public class TestMq {
         new Thread(testMq.new ProductorMq(producter)).start();
         new Thread(testMq.new ProductorMq(producter)).start();
     }
-
     private class ProductorMq implements Runnable{
 
         private Producter producter;

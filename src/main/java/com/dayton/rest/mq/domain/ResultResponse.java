@@ -19,14 +19,11 @@ public class ResultResponse implements Serializable{
     private String message;
     //数据
     private String data;
-
     //是否成功 true:成功，false:失败
-    private Boolean flag;
+    private Boolean success;
 
-    public ResultResponse() { }
-
-    public ResultResponse(Boolean flag, String message) {
-        setFlag(flag);
+    public ResultResponse(Boolean success, String message) {
+        setSuccess(success);
         setMessage(message);
     }
 
@@ -62,12 +59,12 @@ public class ResultResponse implements Serializable{
         this.data = data;
     }
 
-    public Boolean getFlag() {
-        return flag;
+    public Boolean getSuccess() {
+        return success;
     }
 
-    public void setFlag(Boolean flag) {
-        this.flag = flag;
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 
     @Override
@@ -77,7 +74,7 @@ public class ResultResponse implements Serializable{
                 ", statusCode=" + statusCode +
                 ", message='" + message + '\'' +
                 ", data='" + data + '\'' +
-                ", flag='" + flag + '\'' +
+                ", success='" + success + '\'' +
                 ']';
     }
 

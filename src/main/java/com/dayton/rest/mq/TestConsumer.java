@@ -12,6 +12,10 @@ package com.dayton.rest.mq;/**
 public class TestConsumer {
 
     public static void main(String[] args){
+
+    }
+
+    public void test(){
         Consumer consumer = new Consumer();
         consumer.init();
         TestConsumer testConsumer = new TestConsumer();
@@ -22,7 +26,6 @@ public class TestConsumer {
         new Thread(testConsumer.new ConsumerMq(consumer)).start();
         new Thread(testConsumer.new ConsumerMq(consumer)).start();
     }
-
     private class ConsumerMq implements Runnable{
         Consumer consumer;
         public ConsumerMq(Consumer consumer){
