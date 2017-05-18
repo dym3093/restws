@@ -24,6 +24,8 @@
 
     <!--静态资源映射-->
     <!--<mvc:resources mapping="/restws/" location="/script/**"/>-->
+    <!--解决静态资源没法加载的问题-->
+    <!--<mvc:default-servlet-handler/>-->
 
     <!-- 其他配置文件 -->
     <import resource="spring-mvc.xml"/>

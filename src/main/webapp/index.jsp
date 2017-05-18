@@ -6,8 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%--<script type="text/javascript" src="<c:url value="/script/jquery2.0.3/jquery-2.0.3.js"/>"></script>--%>
-    <script type="text/javascript" src="script/jquery2.0.3/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="<c:url value="/script/jquery2.0.3/jquery-2.0.3.js"/>"></script>
 </head>
 <body>
 <br/><br/><br/>
@@ -30,12 +29,8 @@
 客户手机：<input type="text" id="mobile" />
 <input type="button" value="推送客户信息" id="pushClient" />
 
-
-
-
 <script type="text/javascript">
     $(function () {
-        alert("load");
     });
 
     $("#pushUser").click(function(){
@@ -66,7 +61,7 @@
 
     function ajaxDo(url,data){
         $.ajax({
-            url:url ,
+            url: url,
             type: "post",
             dataType: "json",
             data: data,
